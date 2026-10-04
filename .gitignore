@@ -1,0 +1,18 @@
+bin/
+obj/
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.cache
+*.log
+
+# Local configuration and generated uploads
+appsettings.Local.json
+wwwroot/uploads/
+
+# Build and publish output
+publish/
+.codex-*/
+

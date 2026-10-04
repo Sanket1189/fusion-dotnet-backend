@@ -1,0 +1,19 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace WebApiBackend.DTOs.Users;
+
+public class UserQueryDto
+{
+    [StringLength(100)]
+    public string? Search { get; set; }
+
+    public string SortBy { get; set; } = "id";
+
+    public bool Descending { get; set; }
+
+    [Range(1, int.MaxValue)]
+    public int Page { get; set; } = 1;
+
+    [Range(1, 100)]
+    public int PageSize { get; set; } = 10;
+}

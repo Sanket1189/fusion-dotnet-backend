@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS Fusion;
+
+USE Fusion;
+
+CREATE TABLE IF NOT EXISTS Users (
+    Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NULL,
+    Role VARCHAR(20) NOT NULL DEFAULT 'User',
+    DateOfBirth DATE NULL,
+    CreatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+INSERT INTO Users (FirstName, LastName, Email, DateOfBirth)
+VALUES ('Sanket', 'Keluskar', 'sanket@example.com', '2000-01-01')
+ON DUPLICATE KEY UPDATE
+    FirstName = VALUES(FirstName),
+    LastName = VALUES(LastName),
+    DateOfBirth = VALUES(DateOfBirth);
+
+SELECT * FROM Users;

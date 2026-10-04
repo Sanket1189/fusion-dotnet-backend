@@ -1,0 +1,40 @@
+@WebApiBackend_HostAddress = http://localhost:5008
+
+GET {{WebApiBackend_HostAddress}}/api/users
+Accept: application/json
+
+###
+
+GET {{WebApiBackend_HostAddress}}/api/users/1
+Accept: application/json
+
+###
+
+POST {{WebApiBackend_HostAddress}}/api/users
+Content-Type: application/json
+
+{
+  "firstName": "Aarav",
+  "lastName": "Sharma",
+  "email": "aarav.sharma@example.com",
+  "dateOfBirth": "2001-05-18"
+}
+
+###
+
+PUT {{WebApiBackend_HostAddress}}/api/users/1
+Content-Type: application/json
+
+{
+  "firstName": "Sanket",
+  "lastName": "Keluskar Updated",
+  "email": "sanket.updated@example.com",
+  "dateOfBirth": "2000-01-01"
+}
+
+###
+
+DELETE {{WebApiBackend_HostAddress}}/api/users/2
+Accept: application/json
+
+###
